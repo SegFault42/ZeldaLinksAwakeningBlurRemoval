@@ -1,0 +1,84 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
+$(BUILD)	Makefile	/^$(BUILD):$/;"	t
+$(OFILES_SRC)	Makefile	/^$(OFILES_SRC)	: $(HFILES_BIN)$/;"	t
+$(OUTPUT).elf	Makefile	/^$(OUTPUT).elf	:	$(OFILES)$/;"	t
+$(OUTPUT).nro	Makefile	/^$(OUTPUT).nro	:	$(OUTPUT).elf $(OUTPUT).nacp$/;"	t
+$(OUTPUT).nro	Makefile	/^$(OUTPUT).nro	:	$(OUTPUT).elf$/;"	t
+$(OUTPUT).nso	Makefile	/^$(OUTPUT).nso	:	$(OUTPUT).elf$/;"	t
+$(OUTPUT).pfs0	Makefile	/^$(OUTPUT).pfs0	:	$(OUTPUT).nso$/;"	t
+%.bin.o	Makefile	/^%.bin.o	%_bin.h :	%.bin$/;"	t
+%_bin.h	Makefile	/^%.bin.o	%_bin.h :	%.bin$/;"	t
+APP_AUTHOR	Makefile	/^APP_AUTHOR  :=  SegFault42$/;"	m
+APP_ICON	Makefile	/^			export APP_ICON := $(TOPDIR)\/icon.jpg$/;"	m
+APP_ICON	Makefile	/^		export APP_ICON := $(TOPDIR)\/$(TARGET).jpg$/;"	m
+APP_ICON	Makefile	/^	export APP_ICON := $(TOPDIR)\/$(ICON)$/;"	m
+APP_TITLE	Makefile	/^APP_TITLE   :=  ZeldaLinksAwakeningBlurRemoval$/;"	m
+APP_VERSION	Makefile	/^APP_VERSION :=  v1.0$/;"	m
+ARCH	Makefile	/^ARCH	:=	-march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE$/;"	m
+ASFLAGS	Makefile	/^ASFLAGS	:=	-g $(ARCH)$/;"	m
+BINFILES	Makefile	/^BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)\/*.*)))$/;"	m
+BUFF_SIZE	source/main.c	/^#define BUFF_SIZE /;"	d	file:
+BUILD	Makefile	/^BUILD		:=	build$/;"	m
+BUILD_EXEFS_SRC	Makefile	/^export BUILD_EXEFS_SRC := $(TOPDIR)\/$(EXEFS_SRC)$/;"	m
+CFILES	Makefile	/^CFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)\/*.c)))$/;"	m
+CFLAGS	Makefile	/^CFLAGS	:=	-g -Wall -O2 -ffunction-sections \\$/;"	m
+COMMON_H	include/common.h	/^#define COMMON_H$/;"	d
+CPPFILES	Makefile	/^CPPFILES	:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)\/*.cpp)))$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions$/;"	m
+Credit :	README.md	/^## Credit :$/;"	s
+DATA	Makefile	/^DATA		:=	data$/;"	m
+DEPENDS	Makefile	/^DEPENDS	:=	$(OFILES:.o=.d)$/;"	m
+DEPSDIR	Makefile	/^export DEPSDIR	:=	$(CURDIR)\/$(BUILD)$/;"	m
+EXEFS_SRC	Makefile	/^EXEFS_SRC	:=	exefs_src$/;"	m
+HFILES_BIN	Makefile	/^export HFILES_BIN	:=	$(addsuffix .h,$(subst .,_,$(BINFILES)))$/;"	m
+INCLUDE	Makefile	/^export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)\/$(dir)) \\$/;"	m
+INCLUDES	Makefile	/^INCLUDES	:=	include$/;"	m
+IRAM_PAYLOAD_BASE	source/reboot.c	/^#define IRAM_PAYLOAD_BASE /;"	d	file:
+IRAM_PAYLOAD_MAX_SIZE	source/reboot.c	/^#define IRAM_PAYLOAD_MAX_SIZE /;"	d	file:
+LD	Makefile	/^	export LD	:=	$(CC)$/;"	m
+LD	Makefile	/^	export LD	:=	$(CXX)$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS	=	-specs=$(DEVKITPRO)\/libnx\/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)$/;"	m
+LIBDIRS	Makefile	/^LIBDIRS	:= $(PORTLIBS) $(LIBNX)$/;"	m
+LIBPATHS	Makefile	/^export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)\/lib)$/;"	m
+LIBS	Makefile	/^LIBS	:= -lm -lnx$/;"	m
+OFILES	Makefile	/^export OFILES 	:=	$(OFILES_BIN) $(OFILES_SRC)$/;"	m
+OFILES_BIN	Makefile	/^export OFILES_BIN	:=	$(addsuffix .o,$(BINFILES))$/;"	m
+OFILES_SRC	Makefile	/^export OFILES_SRC	:=	$(CPPFILES:.cpp=.o) $(CFILES:.c=.o) $(SFILES:.s=.o)$/;"	m
+OUTPUT	Makefile	/^export OUTPUT	:=	$(CURDIR)\/$(TARGET)$/;"	m
+PRINT_H	include/print.h	/^#define PRINT_H$/;"	d
+REBOOT_H	include/reboot.h	/^#define REBOOT_H$/;"	d
+SFILES	Makefile	/^SFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)\/*.s)))$/;"	m
+SOURCES	Makefile	/^SOURCES		:=	source$/;"	m
+TARGET	Makefile	/^TARGET		:=	$(notdir $(CURDIR))$/;"	m
+TOPDIR	Makefile	/^TOPDIR ?= $(CURDIR)$/;"	m
+TOPDIR	Makefile	/^export TOPDIR	:=	$(CURDIR)$/;"	m
+Usage :	README.md	/^## Usage :$/;"	s
+VPATH	Makefile	/^export VPATH	:=	$(foreach dir,$(SOURCES),$(CURDIR)\/$(dir)) \\$/;"	m
+ZeldaLinksAwakeningBlurRemoval	README.md	/^# ZeldaLinksAwakeningBlurRemoval$/;"	c
+all	Makefile	/^all	:	$(OUTPUT).pfs0 $(OUTPUT).nro$/;"	t
+all	Makefile	/^all: $(BUILD)$/;"	t
+checkNeededFile	source/main.c	/^void	checkNeededFile(void)$/;"	f	typeref:typename:void
+clean	Makefile	/^clean:$/;"	t
+clear_iram	source/reboot.c	/^static void clear_iram(void) {$/;"	f	typeref:typename:void	file:
+copyFile	source/main.c	/^bool	copyFile(const char *dest, const char *src, ptrProgressBar progress)$/;"	f	typeref:typename:bool
+copy_to_iram	source/reboot.c	/^static void copy_to_iram(uintptr_t iram_addr, void *buf, size_t size) {$/;"	f	typeref:typename:void	file:
+disableMod	source/main.c	/^bool	disableMod(void)$/;"	f	typeref:typename:bool
+do_iram_dram_copy	source/reboot.c	/^static void do_iram_dram_copy(void *buf, uintptr_t iram_addr, size_t size, int option) {$/;"	f	typeref:typename:void	file:
+drawButton	source/print.c	/^void	drawButton(char *string, char *color)$/;"	f	typeref:typename:void
+enableMod	source/main.c	/^bool	enableMod(void)$/;"	f	typeref:typename:bool
+getModState	source/main.c	/^static bool	getModState(void)$/;"	f	typeref:typename:bool	file:
+icons	Makefile	/^	icons := $(wildcard *.jpg)$/;"	m
+isFileExist	source/main.c	/^bool	isFileExist(const char *file)$/;"	f	typeref:typename:bool
+main	source/main.c	/^int main(void)$/;"	f	typeref:typename:int
+printHeader	source/print.c	/^void	printHeader(void)$/;"	f	typeref:typename:void
+progressBar	source/print.c	/^void	progressBar(double TotalToDownload, double NowDownloaded)$/;"	f	typeref:typename:void
+ptrProgressBar	include/print.h	/^typedef void (*ptrProgressBar)(double, double);$/;"	t	typeref:typename:void (*)(double,double)
+reboot_to_payload	source/reboot.c	/^static void reboot_to_payload(void) {$/;"	f	typeref:typename:void	file:
+reboottopayload	source/reboot.c	/^void reboottopayload(const char *paylod)$/;"	f	typeref:typename:void
+warningMessage	source/print.c	/^void	warningMessage(char *str)$/;"	f	typeref:typename:void

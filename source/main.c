@@ -15,9 +15,9 @@ bool	isFileExist(const char *file)
 	return (true);
 }
 
-bool	getTwiliState(void)
+static bool	getModState(void)
 {
-	return (isFileExist("sdmc:/atmosphere/titles/0100000000006480/flags/boot2.flag"));
+	return (isFileExist("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs/region_common/shader/postprocess.bfsha"));
 }
 
 bool	copyFile(const char *dest, const char *src, ptrProgressBar progress)
@@ -63,15 +63,15 @@ bool	copyFile(const char *dest, const char *src, ptrProgressBar progress)
 	return (true);
 }
 
-bool	enableTwili(void)
+bool	enableMod(void)
 {
-	if (copyFile("sdmc:/atmosphere/hbl.nsp", "sdmc:/switch/twili_disabler/twili_hbl.nsp", progressBar) == false) {
-		warningMessage("Copy of (twili) hbl.nsp failed");
-		return (false);
-	}
+	mkdir("sdmc:/atmosphere/titles/01006BB00C6F0000", S_IRWXU);
+	mkdir("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs", S_IRWXU);
+	mkdir("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs/region_common", S_IRWXU);
+	mkdir("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs/region_common/shader", S_IRWXU);
 
-	if (copyFile("sdmc:/atmosphere/titles/0100000000006480/flags/boot2.flag", "sdmc:/switch/twili_disabler/boot2.flag", progressBar) == false) {
-		warningMessage("Copy of boot2.flag failed");
+	if (copyFile("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs/region_common/shader/postprocess.bfsha", "sdmc:/switch/ZeldaLinksAwakeningBlurRemoval/postprocess.bfsha", progressBar) == false) {
+		warningMessage("Copy of postprocess.bfsha failed");
 		return (false);
 	}
 
@@ -79,16 +79,10 @@ bool	enableTwili(void)
 }
 
 
-bool	disableTwili(void)
+bool	disableMod(void)
 {
-	// install stock hbl
-	if (copyFile( "sdmc:/atmosphere/hbl.nsp", "sdmc:/switch/twili_disabler/stock_hbl.nsp", progressBar) == false) {
-		warningMessage("Copy of (stock) hbl.nsp failed");
-		return (false);
-	}
-
-	// remove boot2.flag
-	remove("sdmc:/atmosphere/titles/0100000000006480/flags/boot2.flag");
+	// remove mod
+	remove("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs/region_common/shader/postprocess.bfsha");
 
 	return (true);
 }
@@ -97,24 +91,16 @@ void	checkNeededFile(void)
 {
 	u64		kDown = 0;
 	bool	err = false;
-	char	*files[] = {
-		"sdmc:/switch/twili_disabler",
-		"sdmc:/switch/twili_disabler/boot2.flag",
-		"sdmc:/switch/twili_disabler/twili_hbl.nsp",
-		"sdmc:/switch/twili_disabler/stock_hbl.nsp",
-		NULL
-	};
+	char	files[] = "sdmc:/switch/ZeldaLinksAwakeningBlurRemoval/postprocess.bfsha";
 
 	printf("Check requiered files :\n\n");
 
-	// Check all files
-	for (int i = 0; files[i]; i++) {
-		if (isFileExist(files[i]) == false) {
-			printf("[%sKO%s] %s\n", CONSOLE_RED, CONSOLE_RESET, files[i]);
-			err = true;
-		} else {
-			printf("[%sOK%s] %s\n", CONSOLE_GREEN, CONSOLE_RESET, files[i]);
-		}
+	// Check is file is present
+	if (isFileExist(files) == false) {
+		printf("[%sKO%s] %s\n", CONSOLE_RED, CONSOLE_RESET, files);
+		err = true;
+	} else {
+		printf("[%sOK%s] %s\n", CONSOLE_GREEN, CONSOLE_RESET, files);
 	}
 
 	// If one of file is missing, print error
@@ -123,7 +109,7 @@ void	checkNeededFile(void)
 		hidScanInput();
 			kDown = hidKeysDown(CONTROLLER_P1_AUTO);
 
-			printf("%s\x1b[25;15H" "Please put missing files in /switch/twili_disabler/", CONSOLE_YELLOW);
+			printf("%s\x1b[25;15H" "Please put missing files in /switch/ZeldaLinksAwakeningBlurRemoval/postprocess.bfsh", CONSOLE_YELLOW);
 			printf("\x1b[27;35H" "Press + to quit\n%s", CONSOLE_RESET);
 
 			if (kDown & KEY_PLUS) {
@@ -151,23 +137,23 @@ int main(void)
 
 		printHeader();
 
-		if (getTwiliState() == true) {
-			drawButton("Twili Enabled !", CONSOLE_GREEN);
+		if (getModState() == true) {
+			drawButton("Mod Enabled !", CONSOLE_GREEN);
 			printf("\x1b[43;0H");
-			printf("Press A to %sDisable%s Twili\n", CONSOLE_RED, CONSOLE_RESET);
+			printf("Press A to %sDisable%s mod\n", CONSOLE_RED, CONSOLE_RESET);
 
 			if (kDown & KEY_A) {
-				if (disableTwili() == false) {
+				if (disableMod() == false) {
 					break ;
 				}
 			}
 		} else {
-			drawButton("Twili Disabled !", CONSOLE_RED);
+			drawButton("Mod Disabled !", CONSOLE_RED);
 			printf("\x1b[43;0H");
-			printf("Press A to %sEnable%s Twili\n", CONSOLE_GREEN, CONSOLE_RESET);
+			printf("Press A to %sEnable%s mod\n", CONSOLE_GREEN, CONSOLE_RESET);
 
 			if (kDown & KEY_A) {
-				if (enableTwili() == false) {
+				if (enableMod() == false) {
 					break ;
 				}
 			}

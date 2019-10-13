@@ -33,11 +33,11 @@ include $(DEVKITPRO)/libnx/switch_rules
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	source
+INCLUDES	:=	include
 DATA		:=	data
 EXEFS_SRC	:=	exefs_src
 APP_AUTHOR  :=  SegFault42
 APP_TITLE   :=  ZeldaLinksAwakeningBlurRemoval
-ICON        :=  Icon.jpg
 APP_VERSION :=  v1.0
 #ROMFS	:=	romfs
 

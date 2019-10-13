@@ -5,7 +5,7 @@ void	printHeader(void)
 {
 	printf("\x1b[0;0H");
 	printf("================================================================================");
-	printf("%s%55s%s", CONSOLE_YELLOW, "Twili Disabler (By SegFault42)\n", CONSOLE_RESET);
+	printf("%s%45s%s", CONSOLE_YELLOW, "ZeldaLinksAwakeningBlurRemoval (By SegFault42)\n", CONSOLE_RESET);
 	printf("================================================================================");
 }
 
