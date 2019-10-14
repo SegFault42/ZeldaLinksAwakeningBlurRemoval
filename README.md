@@ -1,7 +1,7 @@
 # ZeldaLinksAwakeningBlurRemoval
 Homebrew to enable or disable blur in Zelda Links Awakening
 
-The purpose of this homebrew is to disable or enable blur in link's awakening game using ![NO DOF Blur](https://gamebanana.com/effects/6321)
+The purpose of this homebrew is to disable or enable blur in link's awakening game using [NO DOF Blur](https://gamebanana.com/effects/6321)
 
 ## Screenshot :
 
@@ -11,7 +11,7 @@ The purpose of this homebrew is to disable or enable blur in link's awakening ga
 
 ## Usage :
 
-- Downlaod release here : ![release](https://github.com/SegFault42/ZeldaLinksAwakeningBlurRemoval/releases/download/untagged-a2c82e2cea678ea83838/ZeldaLinksAwakeningBlurRemoval.zip)
+- Downlaod release here : [release](https://github.com/SegFault42/ZeldaLinksAwakeningBlurRemoval/releases/download/untagged-a2c82e2cea678ea83838/ZeldaLinksAwakeningBlurRemoval.zip)
 - Exract it.
 - Copy ZeldaLinksAwakeningBlurRemoval folder in /switch folder of your SDCard
 - Launch the homebrew from your switch and press A to Enable or disable the mod
@@ -20,5 +20,5 @@ The purpose of this homebrew is to disable or enable blur in link's awakening ga
 
 ## Credit :
 
-- ![MelonSpeedrun](https://gamebanana.com/search?query=MelonSpeedruns)
-- ![Rodrigo](https://gamebanana.com/search?query=Rodrigo)
+- [MelonSpeedrun](https://gamebanana.com/search?query=MelonSpeedruns)
+- [Rodrigo](https://gamebanana.com/search?query=Rodrigo)
