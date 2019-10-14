@@ -1,6 +1,5 @@
 #include "common.h"
 #include "print.h"
-#include "reboot.h"
 
 #define BUFF_SIZE (1024 * 16)
 
@@ -139,7 +138,7 @@ int main(void)
 
 		if (getModState() == true) {
 			drawButton("Mod Enabled !", CONSOLE_GREEN);
-			printf("\x1b[43;0H");
+			printf("\x1b[44;0H");
 			printf("Press A to %sDisable%s mod\n", CONSOLE_RED, CONSOLE_RESET);
 
 			if (kDown & KEY_A) {
@@ -149,7 +148,7 @@ int main(void)
 			}
 		} else {
 			drawButton("Mod Disabled !", CONSOLE_RED);
-			printf("\x1b[43;0H");
+			printf("\x1b[44;0H");
 			printf("Press A to %sEnable%s mod\n", CONSOLE_GREEN, CONSOLE_RESET);
 
 			if (kDown & KEY_A) {
@@ -159,16 +158,12 @@ int main(void)
 			}
 		}
 
-		/*printf("\x1b[49;0H");*/
-		printf("Press + to %sExit%s\n", CONSOLE_RED, CONSOLE_RESET);
-		/*printf("\x1b[50;0H");*/
-		printf("Press - to %sReboot%s (Need to reboot after enable/dsable twili)", CONSOLE_RED, CONSOLE_RESET);
+		printf("Press + to %sExit%s", CONSOLE_RED, CONSOLE_RESET);
+		printf("\x1b[42;0H");
+		printf("%sRestart%s the game to apply the changes", CONSOLE_GREEN, CONSOLE_RESET);
 
 		if (kDown & KEY_PLUS) {
 			break;
-		}
-		if (kDown & KEY_MINUS) {
-			reboottopayload("/atmosphere/reboot_payload.bin");
 		}
 
 		consoleUpdate(NULL);

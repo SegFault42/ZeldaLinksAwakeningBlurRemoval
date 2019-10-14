@@ -5,7 +5,7 @@ void	printHeader(void)
 {
 	printf("\x1b[0;0H");
 	printf("================================================================================");
-	printf("%s%45s%s", CONSOLE_YELLOW, "ZeldaLinksAwakeningBlurRemoval (By SegFault42)\n", CONSOLE_RESET);
+	printf("%s%65s%s", CONSOLE_YELLOW, "ZeldaLinksAwakeningBlurRemoval (By SegFault42)\n", CONSOLE_RESET);
 	printf("================================================================================");
 }
 
@@ -16,7 +16,7 @@ void	drawButton(char *string, char *color)
 	printf("%31s ________________\n", "");
 	printf("%31s|                |\n", "");
 	printf("%31s|                |\n", "");
-	printf("%31s|%s%16s%s|\n", "", color, string, CONSOLE_RESET);
+	printf("%31s|%s%15s%s |\n", "", color, string, CONSOLE_RESET);
 	printf("%31s|                |\n", "");
 	printf("%31s|                |\n", "");
 	printf("%31s ----------------\n", "");
