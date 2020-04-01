@@ -16,7 +16,7 @@ bool	isFileExist(const char *file)
 
 static bool	getModState(void)
 {
-	return (isFileExist("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs/region_common/shader/postprocess.bfsha"));
+	return (isFileExist("sdmc:/atmosphere/contents/01006BB00C6F0000/romfs/region_common/shader/postprocess.bfsha"));
 }
 
 bool	copyFile(const char *dest, const char *src, ptrProgressBar progress)
@@ -64,12 +64,12 @@ bool	copyFile(const char *dest, const char *src, ptrProgressBar progress)
 
 bool	enableMod(void)
 {
-	mkdir("sdmc:/atmosphere/titles/01006BB00C6F0000", S_IRWXU);
-	mkdir("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs", S_IRWXU);
-	mkdir("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs/region_common", S_IRWXU);
-	mkdir("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs/region_common/shader", S_IRWXU);
+	mkdir("sdmc:/atmosphere/contents/01006BB00C6F0000", S_IRWXU);
+	mkdir("sdmc:/atmosphere/contents/01006BB00C6F0000/romfs", S_IRWXU);
+	mkdir("sdmc:/atmosphere/contents/01006BB00C6F0000/romfs/region_common", S_IRWXU);
+	mkdir("sdmc:/atmosphere/contents/01006BB00C6F0000/romfs/region_common/shader", S_IRWXU);
 
-	if (copyFile("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs/region_common/shader/postprocess.bfsha", "sdmc:/switch/ZeldaLinksAwakeningBlurRemoval/postprocess.bfsha", progressBar) == false) {
+	if (copyFile("sdmc:/atmosphere/contents/01006BB00C6F0000/romfs/region_common/shader/postprocess.bfsha", "sdmc:/switch/ZeldaLinksAwakeningBlurRemoval/postprocess.bfsha", progressBar) == false) {
 		warningMessage("Copy of postprocess.bfsha failed");
 		return (false);
 	}
@@ -81,7 +81,7 @@ bool	enableMod(void)
 bool	disableMod(void)
 {
 	// remove mod
-	remove("sdmc:/atmosphere/titles/01006BB00C6F0000/romfs/region_common/shader/postprocess.bfsha");
+	remove("sdmc:/atmosphere/contents/01006BB00C6F0000/romfs/region_common/shader/postprocess.bfsha");
 
 	return (true);
 }
